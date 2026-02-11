@@ -1,0 +1,17 @@
+# Local environment variables
+.env
+
+# Python virtual environment
+venv/
+
+# Python bytecode and caches
+__pycache__/
+*.pyc
+
+# IDE and Editor files
+.vscode/
+.idea/
+.DS_Store
+
+# Streamlit local state
+.streamlit/config.toml

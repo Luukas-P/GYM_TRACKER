@@ -1,0 +1,7 @@
+streamlit 
+pymongo 
+psycopg2-binary 
+faker 
+pandas 
+plotly 
+python-dotenv
