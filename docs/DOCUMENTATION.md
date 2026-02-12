@@ -63,7 +63,7 @@ Used for flexible activity logs where exercises vary per session.
 
 ## 3. Complex Operations & Optimization
 
-There is three complex operations:
+There are three complex operations:
 
 1.  **Aggregation Pipeline:** The leaderboard uses a `$group`, `$sum`, and `$sort` pipeline to process thousands of records into a top-10 list efficiently.
 2.  **$elemMatch (Nested Query):** The "Heavy Lift Finder" queries deep into the exercises array to find specific matches within a single object, preventing false positives from multi-exercise sessions.
@@ -110,7 +110,7 @@ To support users across the Netherlands, Germany, China, US East Coast, and New 
 - Secondary: Xian, China
 - Secondary: New Zealand
 
-**Rationale:** Each shard has one node in Europe (where 80% of users are located), ensuring low-latency reads for the majority. Secondaries in distant regions serve local read queries during off-peak European hours.
+**Rationale:** Each shard has one node in Europe (where 70% of users are located), ensuring low-latency reads for the majority. Secondaries in distant regions serve local read queries during off-peak European hours.
 
 #### Config Servers (3 Nodes)
 - Netherlands (Primary)
@@ -219,9 +219,12 @@ The business domain prioritizes read performance for workout history over strict
 ## 5. UI Implementation & Reflection
 
 ### Proof-of-Concept UI
-The application is built using Streamlit. It provides a real-time interface where users can select their profile, search through workouts using complex filters, and log new sessions into the MongoDB backend.
+The application is built using Streamlit, which made creating the interactive UI very easy. It provides a real-time interface where users can select their profile, search through workouts using complex filters, log new sessions and delete sessions into the MongoDB backend. 
 
 ### Reflection
 The most significant challenge in this polyglot setup was application-level joins. Because PostgreSQL and MongoDB are separate systems, the application must act as the orchestrator. For example, the leaderboard requires fetching IDs from MongoDB and then performing a secondary lookup in PostgreSQL to display usernames. 
 
-In a large-scale context, this increases the importance of Data Consistency. If a user is deleted in the relational DB, we must implement a "Cascade Delete" logic in the software to clean up MongoDB, or risk "orphaned" data. This project highlighted that while NoSQL offers massive scale, the developer takes on the responsibility for referential integrity that a traditional RDBMS would normally handle.
+In a large-scale context, this increases the importance of data consistency. If a user is deleted in the relational DB, a cascade delete logic needs to be implemented in the software to clean up MongoDB. This project highlighted that while NoSQL offers massive scale, the developer takes on the responsibility for referential integrity that a traditional RDBMS would normally handle. Also with larger systems the complexity of the system increases sifnificantly compared to this simple system. 
+
+### AI Disclosure
+Atificial intelligence (Gemini 3 Pro) was utilized to assist in the generation of technical diagrams using PlantUML and the refinement of documentation for clarity and tone. Also used for generating the README, which was manually checked and refined.
