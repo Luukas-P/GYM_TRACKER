@@ -227,4 +227,4 @@ The most significant challenge in this polyglot setup was application-level join
 In a large-scale context, this increases the importance of data consistency. If a user is deleted in the relational DB, a cascade delete logic needs to be implemented in the software to clean up MongoDB. This project highlighted that while NoSQL offers massive scale, the developer takes on the responsibility for referential integrity that a traditional RDBMS would normally handle. Also with larger systems the complexity of the system increases sifnificantly compared to this simple system. 
 
 ### AI Disclosure
-Atificial intelligence (Gemini 3 Pro) was utilized to assist in the generation of technical diagrams using PlantUML and the refinement of documentation for clarity and tone. Also used for generating the README, which was manually checked and refined.
+Artificial intelligence (Gemini 3 Pro) was utilized to assist in the generation of technical diagrams using PlantUML and the refinement of documentation for clarity and tone. Also used for generating the README, which was manually checked and refined.
