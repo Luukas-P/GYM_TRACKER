@@ -19,6 +19,7 @@ This project requires active instances of PostgreSQL and MongoDB. These can be p
 - Docker Compose (recommended)
 - Local installations of PostgreSQL and MongoDB
 - Cloud-hosted databases (e.g., MongoDB Atlas / Supabase)
+
 Note: Ensure the connection details in your .env file match your running services.
 
 ### Project Structure
