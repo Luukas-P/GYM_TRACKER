@@ -14,8 +14,12 @@ GymTrack Pro is a fitness platform designed for the Nordic market (FI, SE, NO, E
 
 ### Prerequisites
 
-- PostgreSQL (Port 5432) & MongoDB (Port 27017)
-- Python 3.9+ with virtual environment support
+This project requires active instances of PostgreSQL and MongoDB. These can be provided via:
+
+- Docker Compose (recommended)
+- Local installations of PostgreSQL and MongoDB
+- Cloud-hosted databases (e.g., MongoDB Atlas / Supabase)
+Note: Ensure the connection details in your .env file match your running services.
 
 ### Project Structure
 
@@ -38,7 +42,7 @@ GYM_TRACKER/
 
 ```bash
 # 1. Clone or extract the project
-cd WORKOUT_TRACKER
+cd GYM_TRACKER
 
 # 2. Create and activate virtual environment
 python -m venv venv
@@ -60,7 +64,7 @@ streamlit run app/main.py
 
 ### Environment Configuration
 For security, database credentials are managed via environment variables.
-1. Create a file named .env in the root directory (WORKOUT_TRACKER/).
+1. Create a file named .env in the root directory (GYM_TRACKER/).
 2. Define the following variables inside the file:
 
 ```text
